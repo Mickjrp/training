@@ -1,7 +1,7 @@
 // Offline cache for Weekly Training.
 // 1) Bump CACHE every time you upload changes.
 // 2) If you add a new file, add it to ASSETS too.
-const CACHE = "weekly-training-v1.3.0";
+const CACHE = "weekly-training-v1.3.2";
 const ASSETS = [
   "./",
   "./index.html",

@@ -170,6 +170,13 @@ document.addEventListener("change", (e) => {
     if (t.checked) ensureAudio();
     return;
   }
+  if (t.id === "st-theme") {
+    settings.theme = t.value;
+    saveSettings();
+    if (t.value === "auto") delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = t.value;
+    return;
+  }
   if (t.id === "st-wake") {
     settings.wake = t.checked;
     saveSettings();
