@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>Weekly Training App</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Training" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#141C26" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0A0E13" media="(prefers-color-scheme: dark)" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <header class="top gut">
+      <div class="col">
+        <div class="top-row">
+          <div class="brand"><b>Weekly Training</b><span>Hypertrophy + Athletic</span></div>
+          <button type="button" class="tbtn" id="timer-open" aria-label="Rest timer">
+            <svg class="ico" viewBox="0 0 24 24">
+              <circle cx="12" cy="13" r="8" />
+              <path d="M12 9v4l2.5 2M9 2h6" /></svg
+            ><span>Timer</span>
+          </button>
+        </div>
+        <div class="days" id="days" role="group" aria-label="Training day"></div>
+      </div>
+    </header>
+
+    <main class="gut">
+      <div class="col">
+        <div class="banner" id="banner" hidden></div>
+        <section class="view" id="v-workout"></section>
+        <section class="view" id="v-body" hidden></section>
+        <section class="view" id="v-week" hidden></section>
+        <section class="view" id="v-settings" hidden></section>
+      </div>
+    </main>
+
+    <div class="timer gut" id="timer" hidden>
+      <div class="col">
+        <div class="tcard" id="tcard" role="timer" aria-live="off">
+          <div class="tinfo">
+            <span class="ttime" id="t-time">0:00</span><span class="tlabel" id="t-label">พัก</span>
+          </div>
+          <div class="tbtns">
+            <button type="button" data-t="-15" aria-label="ลด 15 วินาที">−15</button
+            ><button type="button" data-t="15" aria-label="เพิ่ม 15 วินาที">+15</button
+            ><button type="button" data-t="stop" id="t-stop">ข้าม</button>
+          </div>
+          <div class="tbar"><i id="t-prog"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="tabbar gut" aria-label="Sections">
+      <div class="col" id="tabs">
+        <button type="button" data-tab="workout" aria-pressed="true">
+          <svg class="ico" viewBox="0 0 24 24">
+            <path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11" /></svg
+          >Workout
+        </button>
+        <button type="button" data-tab="body" aria-pressed="false">
+          <svg class="ico" viewBox="0 0 24 24">
+            <rect x="4" y="4" width="16" height="16" rx="4" />
+            <path d="M8.5 10a5 5 0 0 1 7 0L13 12.5" /></svg
+          >Body
+        </button>
+        <button type="button" data-tab="week" aria-pressed="false">
+          <svg class="ico" viewBox="0 0 24 24"><path d="M5 20V11M12 20V4M19 20v-6" /></svg>Week
+        </button>
+        <button type="button" data-tab="settings" aria-pressed="false">
+          <svg class="ico" viewBox="0 0 24 24">
+            <path d="M4 7h10M18 7h2M4 17h4M12 17h8" />
+            <circle cx="16" cy="7" r="2" />
+            <circle cx="10" cy="17" r="2" /></svg
+          >Settings
+        </button>
+      </div>
+    </nav>
+
+    <div class="sheet-wrap" id="sheet" hidden>
+      <div class="sheet-back" data-close></div>
+      <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+        <div class="sheet-head">
+          <h2 id="sheet-title"></h2>
+          <button type="button" data-close>ปิด</button>
+        </div>
+        <div class="sheet-body" id="sheet-body"></div>
+      </div>
+    </div>
+    <div class="toast" id="toast" hidden></div>
+
+    <!-- Scripts share one global scope and must load in this order -->
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/exercise.js"></script>
+    <script src="js/muscle-map.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/views/workout.js"></script>
+    <script src="js/views/sheets.js"></script>
+    <script src="js/views/body.js"></script>
+    <script src="js/views/week.js"></script>
+    <script src="js/views/settings.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
